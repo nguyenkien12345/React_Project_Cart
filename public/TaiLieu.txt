@@ -1,0 +1,15 @@
+https://github.com/nghiepuit/lesson14-cart-template --> Tải template về
+
+App
+    Header
+    Products
+        Product
+        Product
+        Product
+    Message
+    Cart
+        CartItem
+        CartItem
+        CartItem
+        CartResult
+    Footer

@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import CartItem from '../CartItem/CartItem';
 import CartResult from '../CartResult/CartResult';
+import { useDispatch, useSelector } from "react-redux";
+import PropTypes from "prop-types";
 
-function Cart() {
+function Cart(props) {
+
+  {/* Nhận Props dạng children */}
+  var {children} = props;
+
   return (
     <section className="section">
       <div className="table-responsive">
@@ -18,7 +24,7 @@ function Cart() {
             </tr>
           </thead>
           <tbody>
-            <CartItem/>
+            {children}
             <CartResult/>
           </tbody>
         </table>

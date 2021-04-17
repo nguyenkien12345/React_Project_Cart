@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
 
 function Product(props) {
 
@@ -9,10 +8,10 @@ function Product(props) {
   const showRating = (rating) => {
     var result = []; // Nếu dùng push thì phải khai báo [] chứ không dùng null hay ''
       for(var i = 1; i <= rating; i++){ // Lấy ra số sao được đánh giá 
-        result.push(<i className="fa fa-star"></i>)
+        result.push(<i key={i} className="fa fa-star"></i>)
       }
       for(var j = 1; j <= (5-rating); j++){ // Lấy ra số sao không được đánh giá
-        result.push(<i className="fa fa-star-o"></i>)
+        result.push(<i key={j+10} className="fa fa-star-o"></i>) // key={j+10}: Để key i không bị trùng key j (2 key cùng bằng 1,2,...)
       }
     return result;
   }

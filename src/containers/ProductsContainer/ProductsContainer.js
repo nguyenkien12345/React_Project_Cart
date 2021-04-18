@@ -23,7 +23,6 @@ function ProductsContainer(props) {
   };
 
   const products = useSelector((state) => state.products);
-  console.log(products);
 
   const showProducts = (products) => {
     var result = null;

@@ -1,8 +1,4 @@
 import React, { Component } from 'react'
-import CartItem from '../CartItem/CartItem';
-import CartResult from '../CartResult/CartResult';
-import { useDispatch, useSelector } from "react-redux";
-import PropTypes from "prop-types";
 
 function Cart(props) {
 
@@ -25,7 +21,6 @@ function Cart(props) {
           </thead>
           <tbody>
             {children}
-            <CartResult/>
           </tbody>
         </table>
       </div>

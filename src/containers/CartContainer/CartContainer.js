@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import Cart from '../../components/Cart/Cart';
 import CartItem from '../../components/CartItem/CartItem';
+import CartResult from '../../components/CartResult/CartResult';
 import * as types from '../../constants/Message';
 import PropTypes from "prop-types";
 
@@ -26,7 +27,6 @@ function CartContainer(props) {
     };
 
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
 
   const showCartItem = (cart) => {
     var result = types.MSG_CART_EMPTY;
@@ -39,11 +39,22 @@ function CartContainer(props) {
     return result;
   }
 
+  // Tổng tiền giỏ hàng
+  const showTotalAmount = (cart) => {
+    var result = null;
+    if(cart.length > 0)
+    {
+      result = <CartResult cart={cart}/>
+    }
+    return result;
+  }
+
   return (
     <div>
         {/* Truyền Props dạng children */}
         <Cart>
             {showCartItem(cart)}
+            {showTotalAmount(cart)}
         </Cart>
     </div>
   );

@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import Products from '../../components/Products/Products';
 import Product from '../../components/Product/Product';
+import {AddToCart} from '../../actions/index';
 import PropTypes from "prop-types";
 
 function ProductsContainer(props) {
@@ -23,13 +24,20 @@ function ProductsContainer(props) {
   };
 
   const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
+  const onAddToCart = (product) => {
+    const action = AddToCart(product,1);
+    dispatch(action);
+  }
+
 
   const showProducts = (products) => {
     var result = null;
     if(products.length > 0)
     { 
       result = products.map((product,index) => (
-          <Product key={index} product={product}/>
+          <Product key={index} product={product} onAddToCart={onAddToCart}/>
       ));
     }
     return result;

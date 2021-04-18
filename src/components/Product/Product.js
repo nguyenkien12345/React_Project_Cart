@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 function Product(props) {
 
-  const {product} = props;
+  const {product,onAddToCart} = props;
 
   // Hiển thị đánh giá sao
   const showRating = (rating) => {
@@ -14,6 +14,12 @@ function Product(props) {
         result.push(<i key={j+10} className="fa fa-star-o"></i>) // key={j+10}: Để key i không bị trùng key j (2 key cùng bằng 1,2,...)
       }
     return result;
+  }
+
+  const handleAddToCart = (product) => {
+    if(onAddToCart){
+      onAddToCart(product);
+    }
   }
 
   return (
@@ -43,7 +49,14 @@ function Product(props) {
           <div className="card-footer">
             <span className="left"> {product.price} </span>
             <span className="right">
-              <a className="btn-floating blue-gradient" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart">
+              <a 
+                className="btn-floating blue-gradient" 
+                data-toggle="tooltip" 
+                data-placement="top" 
+                title="" 
+                data-original-title="Add to Cart"
+                onClick={() => handleAddToCart(product)}
+              >
                 <i className="fa fa-shopping-cart"></i>
               </a>
             </span>

@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
-function Message() {
+function Message(props) {
+  var {message} = props;
   return (
       <h3>
-        <span className="badge amber darken-2">Mua Hàng Thành Công !</span>
+        <span className="badge amber darken-2">{message}</span>
       </h3>
   );
 }

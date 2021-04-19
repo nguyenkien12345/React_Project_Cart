@@ -6,6 +6,7 @@ import Message from './components/Message/Message';
 import Cart from './components/Cart/Cart';
 import ProductsContainer from './containers/ProductsContainer/ProductsContainer';
 import CartContainer from './containers/CartContainer/CartContainer';
+import MessageContainer from './containers/MessageContainer/MessageContainer';
 function App() {
   return (
     <div className="App">
@@ -13,7 +14,7 @@ function App() {
       <main id="mainContainer">
         <div className="container">
             <ProductsContainer/>
-            <Message/>
+            <MessageContainer/>
             <CartContainer/>
         </div>
       </main>

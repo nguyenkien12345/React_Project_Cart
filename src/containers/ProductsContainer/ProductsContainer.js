@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import Products from '../../components/Products/Products';
 import Product from '../../components/Product/Product';
-import {AddToCart} from '../../actions/index';
+import {AddToCart,ChangeMessage} from '../../actions/index';
 import PropTypes from "prop-types";
 
 function ProductsContainer(props) {
@@ -19,8 +19,8 @@ function ProductsContainer(props) {
         inventory: PropTypes.number.isRequired,   // Ràng buộc id kiểu số
         rating: PropTypes.number.isRequired       // Ràng buộc id kiểu số
       })
-    ).isRequired
-    // products này bắt buộc phải có
+    ).isRequired,
+    onChangeMessage: PropTypes.func.isRequired,
   };
 
   const products = useSelector((state) => state.products);
@@ -31,13 +31,18 @@ function ProductsContainer(props) {
     dispatch(action);
   }
 
+  const onChangeMessage = (message) => {
+    const action = ChangeMessage(message);
+    dispatch(action);
+  }
+
 
   const showProducts = (products) => {
     var result = null;
     if(products.length > 0)
     { 
       result = products.map((product,index) => (
-          <Product key={index} product={product} onAddToCart={onAddToCart}/>
+          <Product key={index} product={product} onAddToCart={onAddToCart} onChangeMessage={onChangeMessage}/>
       ));
     }
     return result;

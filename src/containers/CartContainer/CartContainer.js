@@ -29,7 +29,9 @@ function CartContainer(props) {
   const cart = useSelector((state) => state.cart);
 
   const showCartItem = (cart) => {
-    var result = types.MSG_CART_EMPTY;
+    var result = <tr>
+      <td>{types.MSG_CART_EMPTY}</td>
+    </tr>;
     if(cart.length > 0)
     { 
       result = cart.map((item,index) => (

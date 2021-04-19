@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import * as Message from '../../constants/Message';
 
 function Product(props) {
 
-  const {product,onAddToCart} = props;
+  const {product,onAddToCart,onChangeMessage} = props;
 
   // Hiển thị đánh giá sao
   const showRating = (rating) => {
@@ -16,9 +17,13 @@ function Product(props) {
     return result;
   }
 
+  // Khi thực hiện click mà hàng thì thêm hàng vào giỏ hàng đồng thời hiển thị mua hàng thành công
   const handleAddToCart = (product) => {
     if(onAddToCart){
       onAddToCart(product);
+    }
+    if(onChangeMessage){
+      onChangeMessage(Message.MSG_ADD_TO_CART_SUCCESS);
     }
   }
 

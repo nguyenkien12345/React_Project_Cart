@@ -4,6 +4,8 @@ import Cart from '../../components/Cart/Cart';
 import CartItem from '../../components/CartItem/CartItem';
 import CartResult from '../../components/CartResult/CartResult';
 import * as types from '../../constants/Message';
+import {DeleteProductInCart,UpdateProductInCart} from '../../actions';
+import {ChangeMessage} from '../../actions/index';
 import PropTypes from "prop-types";
 
 function CartContainer(props) {
@@ -22,11 +24,30 @@ function CartContainer(props) {
             }).isRequired,
             quantity: PropTypes.number.isRequired,
         })
-    ).isRequired
-    // products này bắt buộc phải có
+    ).isRequired,
+    onDeleteProductInCart: PropTypes.func.isRequired,
+    onUpdateProductInCart: PropTypes.func.isRequired,
+    onChangeMessage:PropTypes.func.isRequired,
     };
 
   const cart = useSelector((state) => state.cart);
+  
+  const dispatch = useDispatch();
+
+  const onDeleteProductInCart = (product) =>{
+    const action = DeleteProductInCart(product);
+    dispatch(action);
+  }
+
+  const onUpdateProductInCart = (product,quantity) =>{
+    const action = UpdateProductInCart(product,quantity);
+    dispatch(action);
+  }
+
+  const onChangeMessage = (message) => {
+    const action = ChangeMessage(message);
+    dispatch(action);
+  } 
 
   const showCartItem = (cart) => {
     var result = <tr>
@@ -35,7 +56,7 @@ function CartContainer(props) {
     if(cart.length > 0)
     { 
       result = cart.map((item,index) => (
-          <CartItem key={index} item={item}/>
+          <CartItem key={index} item={item} onDeleteProductInCart={onDeleteProductInCart} onChangeMessage={onChangeMessage} onUpdateProductInCart={onUpdateProductInCart}/>
       ));
     }
     return result;

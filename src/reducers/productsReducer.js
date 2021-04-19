@@ -30,7 +30,7 @@ var initialState = [
 
 const productsReducer = (state = initialState,action) => {
     switch(action.type){
-        default: return [...state]; 
+        default: return [...state]; // Trả về danh sách các sản phẩm
     }
 }
 

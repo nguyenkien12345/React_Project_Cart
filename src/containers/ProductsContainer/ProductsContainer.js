@@ -21,9 +21,11 @@ function ProductsContainer(props) {
       })
     ).isRequired,
     onChangeMessage: PropTypes.func.isRequired,
+    onAddToCart: PropTypes.func.isRequired,
   };
 
   const products = useSelector((state) => state.products);
+  
   const dispatch = useDispatch();
 
   const onAddToCart = (product) => {

@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react';
 
 function Cart(props) {
 
-  {/* Nhận Props dạng children */}
+  /* Nhận Props dạng children */
   var {children} = props;
 
   return (

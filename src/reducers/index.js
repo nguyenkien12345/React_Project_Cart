@@ -1,8 +1,7 @@
-import React from 'react';
-import {combineReducers} from 'redux';
-import productsReducer from './productsReducer';
+import { combineReducers } from 'redux';
 import cartReducer from './cartReducer';
 import messageReducer from './messageReducer';
+import productsReducer from './productsReducer';
 
 const appReducers = combineReducers({
     products: productsReducer,

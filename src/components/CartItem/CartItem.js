@@ -1,5 +1,5 @@
-import React, { Component, useState } from 'react';
-import {MSG_DELETE_PRODUCT_IN_CART_SUCCESS, MSG_UPDATE_CART_SUCCESS} from '../../constants/Message';
+import React from 'react';
+import { MSG_DELETE_PRODUCT_IN_CART_SUCCESS, MSG_UPDATE_CART_SUCCESS } from '../../constants/Message';
 
 function CartItem(props) {
 

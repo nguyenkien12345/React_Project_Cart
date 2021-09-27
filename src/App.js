@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
-import Header from './components/Header/Header';
+import React from 'react';
 import Footer from './components/Footer/Footer';
-import Products from './components/Products/Products';
-import Message from './components/Message/Message';
-import Cart from './components/Cart/Cart';
-import ProductsContainer from './containers/ProductsContainer/ProductsContainer';
+import Header from './components/Header/Header';
 import CartContainer from './containers/CartContainer/CartContainer';
 import MessageContainer from './containers/MessageContainer/MessageContainer';
+import ProductsContainer from './containers/ProductsContainer/ProductsContainer';
 function App() {
   return (
     <div className="App">

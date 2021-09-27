@@ -1,34 +1,34 @@
+import PropTypes from "prop-types";
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { DeleteProductInCart, UpdateProductInCart } from '../../actions';
+import { ChangeMessage } from '../../actions/index';
 import Cart from '../../components/Cart/Cart';
 import CartItem from '../../components/CartItem/CartItem';
 import CartResult from '../../components/CartResult/CartResult';
 import * as types from '../../constants/Message';
-import {DeleteProductInCart,UpdateProductInCart} from '../../actions';
-import {ChangeMessage} from '../../actions/index';
-import PropTypes from "prop-types";
+
+CartContainer.propTypes = {
+  cart: PropTypes.arrayOf(
+      PropTypes.shape({
+          product: PropTypes.shape({
+              id: PropTypes.number.isRequired,          
+              name: PropTypes.string.isRequired,        
+              description: PropTypes.string.isRequired, 
+              image: PropTypes.string.isRequired,       
+              price: PropTypes.string.isRequired,       
+              inventory: PropTypes.number.isRequired,   
+              rating: PropTypes.number.isRequired       
+          }).isRequired,
+          quantity: PropTypes.number.isRequired,
+      })
+  ).isRequired,
+  onDeleteProductInCart: PropTypes.func.isRequired,
+  onUpdateProductInCart: PropTypes.func.isRequired,
+  onChangeMessage:PropTypes.func.isRequired,
+  };
 
 function CartContainer(props) {
-
-  CartContainer.propTypes = {
-    cart: PropTypes.arrayOf(
-        PropTypes.shape({
-            product: PropTypes.shape({
-                id: PropTypes.number.isRequired,          
-                name: PropTypes.string.isRequired,        
-                description: PropTypes.string.isRequired, 
-                image: PropTypes.string.isRequired,       
-                price: PropTypes.string.isRequired,       
-                inventory: PropTypes.number.isRequired,   
-                rating: PropTypes.number.isRequired       
-            }).isRequired,
-            quantity: PropTypes.number.isRequired,
-        })
-    ).isRequired,
-    onDeleteProductInCart: PropTypes.func.isRequired,
-    onUpdateProductInCart: PropTypes.func.isRequired,
-    onChangeMessage:PropTypes.func.isRequired,
-    };
 
   const cart = useSelector((state) => state.cart);
   

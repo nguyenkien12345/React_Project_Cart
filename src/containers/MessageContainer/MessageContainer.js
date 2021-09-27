@@ -1,13 +1,14 @@
+import PropTypes from "prop-types";
 import React from 'react';
 import { useSelector } from "react-redux";
 import Message from '../../components/Message/Message';
-import PropTypes from "prop-types";
+
+MessageContainer.propTypes = {
+  message: PropTypes.string.isRequired,
+};
+
 
 function MessageContainer(props) {
-
-  MessageContainer.propTypes = {
-    message: PropTypes.string.isRequired,
-  };
 
   const message = useSelector((state) => state.message);
 
